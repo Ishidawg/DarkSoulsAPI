@@ -6,6 +6,7 @@ class CreateSwords < ActiveRecord::Migration[7.1]
       t.integer :attack
       t.integer :durability
       t.string :weaponclass
+      t.boolean :isreal
       t.string :description
       t.decimal :price
       t.timestamps

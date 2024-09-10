@@ -1,7 +1,7 @@
 class Api::V1::SwordsController < ApplicationController
   before_action :set_sword, only: %i[show update destroy]
 
-  deserializable_resource :position, only: %i[create update]
+  deserializable_resource :sword, only: %i[create update]
 
   # GET /swords
   def index
@@ -53,7 +53,7 @@ class Api::V1::SwordsController < ApplicationController
   end
 
   def sword_params
-    params.require(:data).require(:attributes).permit(:name, :material, :attack, :durability, :weaponclass,
+    params.require(:data).require(:attributes).permit(:name, :material, :attack, :durability, :weaponclass, :isreal,
                                                       :description, :price)
   end
 end

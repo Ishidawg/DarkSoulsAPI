@@ -427,3 +427,183 @@ Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 13:49:10 -0300
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-09-10 17:41:47.173736', '2024-09-10 17:41:47.173741') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSwords (20240910115858)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "swords" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "material" varchar, "attack" integer, "durability" integer, "weaponclass" varchar, "isreal" boolean, "description" varchar, "price" decimal, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240910115858') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 14:41:56 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 4425)
+
+
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:00:37 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.9ms | Allocations: 365)
+Completed 200 OK in 103ms (Views: 29.4ms | ActiveRecord: 0.0ms | Allocations: 4124)
+
+
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:04:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.3ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 9377)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:04:07 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:04:13 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 1925)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:04:13 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:04:20 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 1921)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:04:20 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:07:00 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 1946)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:07:00 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:07:13 -0300
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:4:in `block in <main>'
+config/routes.rb:3:in `<main>'
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:07:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:07:46 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 9385)
+
+
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:07:56 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 478)
+
+
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:09:44 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 2018)
+
+
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:11:09 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 2001)
+
+
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 15:15:30 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 467)
+
+
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 15:15:38 -0300
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
+Completed 422 Unprocessable Content in 18ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 10703)
+
+
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 15:16:23 -0300
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>"false", "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
+Completed 422 Unprocessable Content in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 541)
+
+
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 15:16:27 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>"false", "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 465)
+
+
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 15:16:36 -0300
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>0, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
+Completed 422 Unprocessable Content in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 540)
+
+
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 15:33:24 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
+  [1m[36mSword Load (0.3ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 4400)
+
+
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 15:33:37 -0300
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
+  [1m[36mSword Create (1.5ms)[0m  [1m[32mINSERT INTO "swords" ("name", "material", "attack", "durability", "weaponclass", "isreal", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Fume Ultra Greatsword"], ["material", "Petrified Dragon Bone"], ["attack", 307], ["durability", 70], ["weaponclass", "Ultra Greatsword"], ["isreal", 0], ["description", "Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword."], ["price", 25000.0], ["created_at", "2024-09-10 18:33:37.166607"], ["updated_at", "2024-09-10 18:33:37.166607"]]
+  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
+Completed 201 Created in 16ms (Views: 0.1ms | ActiveRecord: 3.4ms | Allocations: 10212)
+
+
+Started GET "/" for 127.0.0.1 at 2024-09-10 15:33:46 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 584)
+
+
