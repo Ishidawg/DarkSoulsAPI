@@ -1,0 +1,429 @@
+Started GET "/" for 127.0.0.1 at 2024-09-10 08:23:45 -0300
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 366)
+Completed 200 OK in 34ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 7604)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (2.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-09-10 12:01:30.260525', '2024-09-10 12:01:30.260528') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSwords (20240910115858)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "swords" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "material" varchar, "attack" integer, "durability" integer, "type" varchar, "description" varchar, "price" decimal, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240910115858') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-09-10 09:02:11 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | Allocations: 366)
+Completed 200 OK in 10ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 4206)
+
+
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:02:36 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/api/v1/sword" for ::1 at 2024-09-10 09:02:46 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/sword"):
+  
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:03:00 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/swords" for ::1 at 2024-09-10 09:03:20 -0300
+Processing by SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/swords_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 1.7ms | ActiveRecord: 1.5ms | Allocations: 3301)
+
+
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:03:35 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:13:26 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:14:24 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/swords" for ::1 at 2024-09-10 09:15:25 -0300
+Processing by SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.9ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/swords_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 1.5ms | Allocations: 1000)
+
+
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:16:15 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/api/v1/swords/index" for ::1 at 2024-09-10 09:16:33 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 1.6ms | Allocations: 793)
+
+
+Started GET "/api/v1/swords/index" for ::1 at 2024-09-10 09:16:56 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 1.4ms | Allocations: 789)
+
+
+Started GET "/api/v1/swords/index" for ::1 at 2024-09-10 09:20:10 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords/index"):
+  
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:20:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/swords" for ::1 at 2024-09-10 09:20:20 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/swords"):
+  
+Started GET "/swords" for ::1 at 2024-09-10 09:26:58 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/swords"):
+  
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:27:03 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:27:53 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:28:09 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 10:06:27 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+  
+Started GET "/api/v1/swords/show" for ::1 at 2024-09-10 10:07:02 -0300
+Processing by Api::V1::SwordsController#show as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "id"=>"show", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords" WHERE "swords"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/swords_controller.rb:45:in `set_sword'
+Completed 404 Not Found in 9ms (ActiveRecord: 1.7ms | Allocations: 3070)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Sword with 'id'=show):
+  
+app/controllers/api/v1/swords_controller.rb:45:in `set_sword'
+Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:07:32 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.4ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 1.7ms | Allocations: 3023)
+
+
+Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:15:45 -0300
+  
+SyntaxError (/home/willian/Code/LearnRails/swordAPI/swordAPI/config/routes.rb:8: syntax error, unexpected `end'):
+  
+config/routes.rb:8: syntax error, unexpected `end'
+Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:16:00 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.7ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 1008)
+
+
+Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:48:30 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (1.0ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 1005)
+
+
+Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:51:09 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 562)
+
+
+Started GET "/api/v1/swords/" for ::1 at 2024-09-10 11:02:29 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.7ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 846)
+
+
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 11:02:32 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 560)
+
+
+Started GET "/" for 127.0.0.1 at 2024-09-10 11:06:38 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 365)
+Completed 200 OK in 24ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 4123)
+
+
+Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 11:06:48 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 554)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 11:06:49 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 11:06:53 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 565)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 11:06:53 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 11:17:22 -0300
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (8.0ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
+Completed 200 OK in 20ms (Views: 0.6ms | ActiveRecord: 12.0ms | Allocations: 1183)
+
+
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 11:29:58 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
+  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 4372)
+
+
+Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 11:31:18 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 478)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 11:31:18 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started PUT "/api/v1/swords" for ::1 at 2024-09-10 11:32:07 -0300
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/swords"):
+  
+Started PUT "/api/v1/swords" for ::1 at 2024-09-10 11:33:03 -0300
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/swords"):
+  
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 11:34:41 -0300
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99, "sword"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 298)
+
+
+  
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'Greatsword'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Sword.inheritance_column to use another column for that information.):
+  
+app/controllers/api/v1/swords_controller.rb:19:in `create'
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 11:43:32 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99, "sword"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}
+  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 4372)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-09-10 16:19:32.770911', '2024-09-10 16:19:32.770915') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSwords (20240910115858)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "swords" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "material" varchar, "attack" integer, "durability" integer, "weaponclass" varchar, "description" varchar, "price" decimal, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240910115858') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/swords" for ::1 at 2024-09-10 13:32:37 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
+Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 4372)
+
+
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:32:42 -0300
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 169)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: sword):
+  
+app/controllers/api/v1/swords_controller.rb:54:in `sword_params'
+app/controllers/api/v1/swords_controller.rb:19:in `create'
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:32:59 -0300
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 104)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: sword):
+  
+app/controllers/api/v1/swords_controller.rb:54:in `sword_params'
+app/controllers/api/v1/swords_controller.rb:19:in `create'
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:33:15 -0300
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 104)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: sword):
+  
+app/controllers/api/v1/swords_controller.rb:54:in `sword_params'
+app/controllers/api/v1/swords_controller.rb:19:in `create'
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:36:54 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+Completed 400 Bad Request in 5ms (ActiveRecord: 1.8ms | Allocations: 2481)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: sword):
+  
+app/controllers/api/v1/swords_controller.rb:56:in `sword_params'
+app/controllers/api/v1/swords_controller.rb:21:in `create'
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:38:41 -0300
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 134)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: sword):
+  
+app/controllers/api/v1/swords_controller.rb:56:in `sword_params'
+app/controllers/api/v1/swords_controller.rb:21:in `create'
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:43:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
+  [1m[36mSword Create (0.9ms)[0m  [1m[32mINSERT INTO "swords" ("name", "material", "attack", "durability", "weaponclass", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Abyssal Greatsword"], ["material", "Titanite"], ["attack", 150], ["durability", 80], ["weaponclass", "Greatsword"], ["description", "A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power."], ["price", 5000.99], ["created_at", "2024-09-10 16:43:03.900422"], ["updated_at", "2024-09-10 16:43:03.900422"]]
+  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 5.0ms | Allocations: 12540)
+
+
+  
+NoMethodError (undefined method `type' for an instance of Sword):
+  
+app/controllers/api/v1/swords_controller.rb:24:in `create'
+Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:45:59 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SwordsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
+  [1m[36mSword Create (1.1ms)[0m  [1m[32mINSERT INTO "swords" ("name", "material", "attack", "durability", "weaponclass", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Abyssal Greatsword"], ["material", "Titanite"], ["attack", 150], ["durability", 80], ["weaponclass", "Greatsword"], ["description", "A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power."], ["price", 5000.99], ["created_at", "2024-09-10 16:45:59.845722"], ["updated_at", "2024-09-10 16:45:59.845722"]]
+  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
+Completed 201 Created in 20ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 12421)
+
+
+Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 13:46:07 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1848)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 13:46:07 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started DELETE "/api/v1/swords/2" for ::1 at 2024-09-10 13:46:30 -0300
+Processing by Api::V1::SwordsController#destroy as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "id"=>"2", "sword"=>{}}
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords" WHERE "swords"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/swords_controller.rb:50:in `set_sword'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:43:in `destroy'
+  [1m[36mSword Destroy (0.8ms)[0m  [1m[31mDELETE FROM "swords" WHERE "swords"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/swords_controller.rb:43:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:43:in `destroy'
+Completed 204 No Content in 10ms (ActiveRecord: 1.1ms | Allocations: 3850)
+
+
+Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 13:46:33 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 525)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 13:46:33 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 13:49:10 -0300
+Processing by Api::V1::SwordsController#index as HTML
+  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
+  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 511)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 13:49:10 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
