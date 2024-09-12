@@ -1,17 +1,27 @@
 class EquipmentsController < ApplicationController
-  before_action :set_equipment, only: %i[update show destroy]
+  before_action :set_equipment, only: %i[update destroy]
 
   deserializable_resource :equipment, only: %i[create update destroy]
 
+  # GET /equipments
+  # Returns the sections (Shields, Weapons)
   def index
-    equipments = Equipment.all
-    render json: EquipmentSerializer.new(equipments).serializable_hash.to_json
+    sections = %w[Shields Weapons]
+    render json: { data: sections }
   end
 
-  def show
-    render json: EquipmentSerializer.new(@equipment).serializable_hash.to_json
-  rescue ActiveRecord::RecordNotFound
-    render json: { error: 'Equipment not found' }, status: :not_found
+  # GET /equipments/shields
+  # Returns all shields
+  def shields
+    shields = Equipment.where(equipment_type: 'Shield')
+    render json: EquipmentSerializer.new(shields).serializable_hash.to_json
+  end
+
+  # GET /equipments/weapons
+  # Returns all weapons
+  def weapons
+    weapons = Equipment.where(equipment_type: 'Weapon')
+    render json: EquipmentSerializer.new(weapons).serializable_hash.to_json
   end
 
   def create
@@ -48,6 +58,6 @@ class EquipmentsController < ApplicationController
   end
 
   def equipment_params
-    params.require(:data).require(:attributes).permit(:name)
+    params.require(:data).require(:attributes).permit(:name, :equipment_type)
   end
 end
