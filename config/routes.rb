@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'shields', to: 'equipments#shields'
       get 'weapons', to: 'equipments#weapons'
+      get 'armors', to: 'equipments#armors'
     end
   end
 end

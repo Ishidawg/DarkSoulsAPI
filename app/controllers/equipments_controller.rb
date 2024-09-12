@@ -3,27 +3,32 @@ class EquipmentsController < ApplicationController
 
   deserializable_resource :equipment, only: %i[create update destroy]
 
-  # GET /equipments
-  # Returns the sections (Shields, Weapons)
+  # Defines main sections (Eg: Weapons and Armors )
   def index
-    sections = %w[Shields Weapons]
+    sections = %w[Shields Weapons Armor]
     render json: { data: sections }
   end
 
-  # GET /equipments/shields
   # Returns all shields
   def shields
     shields = Equipment.where(equipment_type: 'Shield')
     render json: EquipmentSerializer.new(shields).serializable_hash.to_json
   end
 
-  # GET /equipments/weapons
   # Returns all weapons
   def weapons
     weapons = Equipment.where(equipment_type: 'Weapon')
     render json: EquipmentSerializer.new(weapons).serializable_hash.to_json
   end
 
+  # Returns all armors
+  def armors
+    armors = Equipment.where(equipment_type: 'Armor')
+    render json: EquipmentSerializer.new(armors).serializable_hash.to_json
+  end
+
+  # create new equipement, need to pass: "name" and ":equipment_type"
+  # Eg: "name: Axes" and "equipment_type: Weapons"
   def create
     equipment = Equipment.new(equipment_params)
 
