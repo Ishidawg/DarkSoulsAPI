@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 ruby '3.3.4'
 
-gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
+gem 'rails', '~> 7.1.4'
 
-gem 'sqlite3', '~> 1.4'
+gem 'sqlite3', '>= 1.4'
 
 gem 'puma', '>= 5.0'
 

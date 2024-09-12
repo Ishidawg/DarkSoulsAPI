@@ -1,625 +1,553 @@
-Started GET "/" for 127.0.0.1 at 2024-09-10 08:23:45 -0300
-  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-09-12 02:08:50.489420', '2024-09-12 02:08:50.489424') RETURNING "key"[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEquipment (20240912020602)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "equipment" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240912020602') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-09-11 23:09:01 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 366)
-Completed 200 OK in 34ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 7604)
+  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 366)
+Completed 200 OK in 19ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 7600)
 
 
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:09:09 -0300
+Processing by EquipmentsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 96)
+
+
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:09:14 -0300
+Processing by EquipmentsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 18)
+
+
+Started POST "/" for ::1 at 2024-09-11 23:09:23 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/" for ::1 at 2024-09-11 23:09:28 -0300
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "welcome"=>{"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}}}
+  Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 13)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 264)
+
+
+Started GET "/equipments" for ::1 at 2024-09-11 23:09:37 -0300
+Processing by EquipmentsController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "equipment"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 1.3ms | Allocations: 19)
+
+
+Started GET "/equipment" for ::1 at 2024-09-11 23:09:41 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/equipment"):
+  
+Started GET "/equipments" for ::1 at 2024-09-11 23:09:48 -0300
+Processing by EquipmentsController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "equipment"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 20)
+
+
+Started GET "/" for ::1 at 2024-09-11 23:21:00 -0300
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "welcome"=>{"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}}}
+  Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | Allocations: 256)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 889)
+
+
+Started GET "/equipments" for ::1 at 2024-09-11 23:21:04 -0300
+  
+NoMethodError (undefined method `before' for class EquipmentsController):
+  
+app/controllers/equipments_controller.rb:2:in `<class:EquipmentsController>'
+app/controllers/equipments_controller.rb:1:in `<main>'
+Started GET "/equipment" for ::1 at 2024-09-11 23:21:09 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/equipment"):
+  
+Started GET "/equipments" for ::1 at 2024-09-11 23:21:12 -0300
+  
+NoMethodError (undefined method `before' for class EquipmentsController):
+  
+app/controllers/equipments_controller.rb:2:in `<class:EquipmentsController>'
+app/controllers/equipments_controller.rb:1:in `<main>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[36mActiveRecord::InternalMetadata Create (2.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-09-10 12:01:30.260525', '2024-09-10 12:01:30.260528') RETURNING "key"[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateSwords (20240910115858)
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "swords" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "material" varchar, "attack" integer, "durability" integer, "type" varchar, "description" varchar, "price" decimal, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240910115858') RETURNING "version"[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/" for 127.0.0.1 at 2024-09-10 09:02:11 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/equipments" for ::1 at 2024-09-11 23:27:41 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `before' for class EquipmentsController):
+  
+app/controllers/equipments_controller.rb:2:in `<class:EquipmentsController>'
+app/controllers/equipments_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2024-09-11 23:27:46 -0300
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "welcome"=>{"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}}}
+  Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 366)
+Completed 200 OK in 11ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 4235)
+
+
+Started GET "/equipments" for ::1 at 2024-09-11 23:27:57 -0300
+  
+NoMethodError (undefined method `before' for class EquipmentsController):
+  
+app/controllers/equipments_controller.rb:2:in `<class:EquipmentsController>'
+app/controllers/equipments_controller.rb:1:in `<main>'
+Started GET "/equipments" for ::1 at 2024-09-11 23:28:31 -0300
+  
+NoMethodError (undefined method `before' for class EquipmentsController):
+  
+app/controllers/equipments_controller.rb:2:in `<class:EquipmentsController>'
+app/controllers/equipments_controller.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2024-09-11 23:31:30 -0300
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | Allocations: 366)
-Completed 200 OK in 10ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 4206)
+  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 256)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 851)
 
 
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:02:36 -0300
+Started GET "/index" for 127.0.0.1 at 2024-09-11 23:31:34 -0300
   
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
+ActionController::RoutingError (No route matches [GET] "/index"):
   
-Started GET "/api/v1/sword" for ::1 at 2024-09-10 09:02:46 -0300
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:31:47 -0300
   
-ActionController::RoutingError (No route matches [GET] "/api/v1/sword"):
+NoMethodError (undefined method `deserializable_resource' for class EquipmentsController):
   
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:03:00 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/swords" for ::1 at 2024-09-10 09:03:20 -0300
-Processing by SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/swords_controller.rb:8:in `index'
-Completed 200 OK in 9ms (Views: 1.7ms | ActiveRecord: 1.5ms | Allocations: 3301)
-
-
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:03:35 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:13:26 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:14:24 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/swords" for ::1 at 2024-09-10 09:15:25 -0300
-Processing by SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.9ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/swords_controller.rb:8:in `index'
-Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 1.5ms | Allocations: 1000)
-
-
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:16:15 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/api/v1/swords/index" for ::1 at 2024-09-10 09:16:33 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 1.6ms | Allocations: 793)
-
-
-Started GET "/api/v1/swords/index" for ::1 at 2024-09-10 09:16:56 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 1.4ms | Allocations: 789)
-
-
-Started GET "/api/v1/swords/index" for ::1 at 2024-09-10 09:20:10 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords/index"):
-  
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:20:14 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/swords" for ::1 at 2024-09-10 09:20:20 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/swords"):
-  
-Started GET "/swords" for ::1 at 2024-09-10 09:26:58 -0300
+app/controllers/equipments_controller.rb:4:in `<class:EquipmentsController>'
+app/controllers/equipments_controller.rb:1:in `<main>'
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:34:59 -0300
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  
-ActionController::RoutingError (No route matches [GET] "/swords"):
-  
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:27:03 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:27:53 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 09:28:09 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 10:06:27 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  
-ActionController::RoutingError (No route matches [GET] "/api/v1/swords"):
-  
-Started GET "/api/v1/swords/show" for ::1 at 2024-09-10 10:07:02 -0300
-Processing by Api::V1::SwordsController#show as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "id"=>"show", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords" WHERE "swords"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
-  ↳ app/controllers/api/v1/swords_controller.rb:45:in `set_sword'
-Completed 404 Not Found in 9ms (ActiveRecord: 1.7ms | Allocations: 3070)
+Processing by EquipmentsController#index as HTML
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms | Allocations: 195)
 
 
   
-ActiveRecord::RecordNotFound (Couldn't find Sword with 'id'=show):
+AbstractController::ActionNotFound (The edit action could not be found for the :set_equipment
+callback on EquipmentsController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
   
-app/controllers/api/v1/swords_controller.rb:45:in `set_sword'
-Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:07:32 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.4ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 1.7ms | Allocations: 3023)
-
-
-Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:15:45 -0300
-  
-SyntaxError (/home/willian/Code/LearnRails/swordAPI/swordAPI/config/routes.rb:8: syntax error, unexpected `end'):
-  
-config/routes.rb:8: syntax error, unexpected `end'
-Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:16:00 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.7ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 1008)
-
-
-Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:48:30 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (1.0ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 1005)
-
-
-Started GET "/api/v1/swords/" for ::1 at 2024-09-10 10:51:09 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 562)
-
-
-Started GET "/api/v1/swords/" for ::1 at 2024-09-10 11:02:29 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.7ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 846)
-
-
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 11:02:32 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 560)
-
-
-Started GET "/" for 127.0.0.1 at 2024-09-10 11:06:38 -0300
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 365)
-Completed 200 OK in 24ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 4123)
-
-
-Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 11:06:48 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 554)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 11:06:49 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
-  
-Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 11:06:53 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:8:in `index'
-Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 565)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 11:06:53 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
-  
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 11:17:22 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (8.0ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
-Completed 200 OK in 20ms (Views: 0.6ms | ActiveRecord: 12.0ms | Allocations: 1183)
-
-
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 11:29:58 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Wimby", "password"=>"[FILTERED]", "birth"=>"2004-06-06", "rg_image"=>"image.png", "cpf_image"=>"image.png", "account_value"=>2000.0, "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z", "sword"=>{"name"=>"Wimby", "created_at"=>"2024-08-10T19:44:37.188Z", "updated_at"=>"2024-08-10T19:44:37.188Z"}}
-  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
-Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 4372)
-
-
-Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 11:31:18 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
-Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 478)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 11:31:18 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
-  
-Started PUT "/api/v1/swords" for ::1 at 2024-09-10 11:32:07 -0300
-  
-ActionController::RoutingError (No route matches [PUT] "/api/v1/swords"):
-  
-Started PUT "/api/v1/swords" for ::1 at 2024-09-10 11:33:03 -0300
-  
-ActionController::RoutingError (No route matches [PUT] "/api/v1/swords"):
-  
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 11:34:41 -0300
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99, "sword"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}
-Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 298)
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.4) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.4) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.4) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.4) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.4) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.4) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.4) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.4) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.4) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.4) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.4) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.4) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.4) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:882:in `call'
+jsonapi-rails (0.4.1) lib/jsonapi/rails/filter_media_type.rb:16:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+activerecord (7.1.4) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.4) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.4) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:41:52 -0300
+Processing by EquipmentsController#index as HTML
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 85)
 
 
   
-ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'Greatsword'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Sword.inheritance_column to use another column for that information.):
+AbstractController::ActionNotFound (The edit action could not be found for the :set_equipment
+callback on EquipmentsController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
   
-app/controllers/api/v1/swords_controller.rb:19:in `create'
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 11:43:32 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99, "sword"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}
-  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
-Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 4372)
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.4) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.4) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.4) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.4) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.4) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.4) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.4) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.4) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.4) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.4) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.4) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.4) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.4) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:882:in `call'
+jsonapi-rails (0.4.1) lib/jsonapi/rails/filter_media_type.rb:16:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+activerecord (7.1.4) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.4) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.4) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:42:26 -0300
+Processing by EquipmentsController#index as HTML
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 135)
 
 
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-09-10 16:19:32.770911', '2024-09-10 16:19:32.770915') RETURNING "key"[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateSwords (20240910115858)
+  
+AbstractController::ActionNotFound (The destory action could not be found for the :set_equipment
+callback on EquipmentsController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.4) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.4) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.4) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.4) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.4) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.4) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.4) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.4) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.4) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.4) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.4) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.4) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.4) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:882:in `call'
+jsonapi-rails (0.4.1) lib/jsonapi/rails/filter_media_type.rb:16:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+activerecord (7.1.4) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.4) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.4) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:42:39 -0300
+Processing by EquipmentsController#index as HTML
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/controllers/equipments_controller.rb:8:in `index'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 3.4ms | Allocations: 8425)
+
+
+Started GET "/equipments" for ::1 at 2024-09-11 23:42:50 -0300
+Processing by EquipmentsController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "equipment"=>{}}
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/controllers/equipments_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 875)
+
+
+Started POST "/equipments" for ::1 at 2024-09-11 23:47:35 -0300
+Processing by EquipmentsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Shields"}}, "equipment"=>{}}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "swords" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "material" varchar, "attack" integer, "durability" integer, "weaponclass" varchar, "description" varchar, "price" decimal, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240910115858') RETURNING "version"[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 13:32:37 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
-  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:7:in `index'
-Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 4372)
+  ↳ app/controllers/equipments_controller.rb:20:in `create'
+  [1m[36mEquipment Create (0.8ms)[0m  [1m[32mINSERT INTO "equipment" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Shields"], ["created_at", "2024-09-12 02:47:35.335645"], ["updated_at", "2024-09-12 02:47:35.335645"]]
+  ↳ app/controllers/equipments_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/equipments_controller.rb:20:in `create'
+Completed 201 Created in 17ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 8340)
 
 
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:32:42 -0300
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "type"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
-Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 169)
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:47:40 -0300
+Processing by EquipmentsController#index as HTML
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/controllers/equipments_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 564)
 
 
+Started POST "/equipments/1" for ::1 at 2024-09-11 23:51:38 -0300
   
-ActionController::ParameterMissing (param is missing or the value is empty: sword):
+ActionController::RoutingError (No route matches [POST] "/equipments/1"):
   
-app/controllers/api/v1/swords_controller.rb:54:in `sword_params'
-app/controllers/api/v1/swords_controller.rb:19:in `create'
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:32:59 -0300
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
-Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 104)
-
-
+Started POST "/equipment/1" for ::1 at 2024-09-11 23:51:44 -0300
   
-ActionController::ParameterMissing (param is missing or the value is empty: sword):
+ActionController::RoutingError (No route matches [POST] "/equipment/1"):
   
-app/controllers/api/v1/swords_controller.rb:54:in `sword_params'
-app/controllers/api/v1/swords_controller.rb:19:in `create'
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:33:15 -0300
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
-Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 104)
-
-
-  
-ActionController::ParameterMissing (param is missing or the value is empty: sword):
-  
-app/controllers/api/v1/swords_controller.rb:54:in `sword_params'
-app/controllers/api/v1/swords_controller.rb:19:in `create'
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:36:54 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
-Completed 400 Bad Request in 5ms (ActiveRecord: 1.8ms | Allocations: 2481)
-
-
-  
-ActionController::ParameterMissing (param is missing or the value is empty: sword):
-  
-app/controllers/api/v1/swords_controller.rb:56:in `sword_params'
-app/controllers/api/v1/swords_controller.rb:21:in `create'
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:38:41 -0300
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
-Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 134)
-
-
-  
-ActionController::ParameterMissing (param is missing or the value is empty: sword):
-  
-app/controllers/api/v1/swords_controller.rb:56:in `sword_params'
-app/controllers/api/v1/swords_controller.rb:21:in `create'
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:43:03 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
+Started POST "/equipments" for ::1 at 2024-09-11 23:51:48 -0300
+Processing by EquipmentsController#create as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Shields"}}, "equipment"=>{}}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
-  [1m[36mSword Create (0.9ms)[0m  [1m[32mINSERT INTO "swords" ("name", "material", "attack", "durability", "weaponclass", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Abyssal Greatsword"], ["material", "Titanite"], ["attack", 150], ["durability", 80], ["weaponclass", "Greatsword"], ["description", "A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power."], ["price", 5000.99], ["created_at", "2024-09-10 16:43:03.900422"], ["updated_at", "2024-09-10 16:43:03.900422"]]
-  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
-  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
-Completed 500 Internal Server Error in 37ms (ActiveRecord: 5.0ms | Allocations: 12540)
-
-
-  
-NoMethodError (undefined method `type' for an instance of Sword):
-  
-app/controllers/api/v1/swords_controller.rb:24:in `create'
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 13:45:59 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
-  [1m[36mSword Create (1.1ms)[0m  [1m[32mINSERT INTO "swords" ("name", "material", "attack", "durability", "weaponclass", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Abyssal Greatsword"], ["material", "Titanite"], ["attack", 150], ["durability", 80], ["weaponclass", "Greatsword"], ["description", "A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power."], ["price", 5000.99], ["created_at", "2024-09-10 16:45:59.845722"], ["updated_at", "2024-09-10 16:45:59.845722"]]
-  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
-  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
-Completed 201 Created in 20ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 12421)
-
-
-Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 13:46:07 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1848)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 13:46:07 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
-  
-Started DELETE "/api/v1/swords/2" for ::1 at 2024-09-10 13:46:30 -0300
-Processing by Api::V1::SwordsController#destroy as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "id"=>"2", "sword"=>{}}
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords" WHERE "swords"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-  ↳ app/controllers/api/v1/swords_controller.rb:50:in `set_sword'
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:43:in `destroy'
-  [1m[36mSword Destroy (0.8ms)[0m  [1m[31mDELETE FROM "swords" WHERE "swords"."id" = ?[0m  [["id", 2]]
-  ↳ app/controllers/api/v1/swords_controller.rb:43:in `destroy'
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:43:in `destroy'
-Completed 204 No Content in 10ms (ActiveRecord: 1.1ms | Allocations: 3850)
-
-
-Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 13:46:33 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 525)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 13:46:33 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
-  
-Started GET "/api/v1/swords" for 127.0.0.1 at 2024-09-10 13:49:10 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 511)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 13:49:10 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
-  
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-09-10 17:41:47.173736', '2024-09-10 17:41:47.173741') RETURNING "key"[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateSwords (20240910115858)
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "swords" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "material" varchar, "attack" integer, "durability" integer, "weaponclass" varchar, "isreal" boolean, "description" varchar, "price" decimal, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240910115858') RETURNING "version"[0m
+  ↳ app/controllers/equipments_controller.rb:20:in `create'
+  [1m[36mEquipment Create (1.7ms)[0m  [1m[32mINSERT INTO "equipment" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Shields"], ["created_at", "2024-09-12 02:51:48.574619"], ["updated_at", "2024-09-12 02:51:48.574619"]]
+  ↳ app/controllers/equipments_controller.rb:20:in `create'
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 14:41:56 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Abyssal Greatsword", "material"=>"Titanite", "attack"=>150, "durability"=>80, "weaponclass"=>"Greatsword", "description"=>"A massive greatsword imbued with the power of the abyss. Wielded by the cursed knights who once fought the darkness, it carries a heavy burden. Its strikes are slow, but each blow reverberates with ancient power.", "price"=>5000.99}}, "sword"=>{}}
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 4425)
+  ↳ app/controllers/equipments_controller.rb:20:in `create'
+Completed 201 Created in 8ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 1614)
 
 
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:00:37 -0300
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home/willian/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-7.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.9ms | Allocations: 365)
-Completed 200 OK in 103ms (Views: 29.4ms | ActiveRecord: 0.0ms | Allocations: 4124)
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:51:54 -0300
+Processing by EquipmentsController#index as HTML
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/controllers/equipments_controller.rb:8:in `index'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 519)
 
 
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:04:06 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.3ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 9377)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:04:07 -0300
+Started DELETE "/equipments/2" for ::1 at 2024-09-11 23:52:08 -0300
   
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+ActionController::RoutingError (No route matches [DELETE] "/equipments/2"):
   
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:04:13 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 1925)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:04:13 -0300
+Started DELETE "/equipment/2" for ::1 at 2024-09-11 23:52:14 -0300
   
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+ActionController::RoutingError (No route matches [DELETE] "/equipment/2"):
   
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:04:20 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 1921)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:04:20 -0300
+Started DELETE "/equipments/2" for ::1 at 2024-09-11 23:52:32 -0300
   
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+ActionController::RoutingError (No route matches [DELETE] "/equipments/2"):
   
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:07:00 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 1946)
+Started GET "/equipments/2" for ::1 at 2024-09-11 23:52:38 -0300
+Processing by EquipmentsController#show as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Shields"}}, "id"=>"2", "equipment"=>{}}
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment" WHERE "equipment"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/equipments_controller.rb:45:in `set_equipment'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2921)
 
 
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:07:00 -0300
+Started DELETE "/equipments/2" for ::1 at 2024-09-11 23:52:45 -0300
   
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+ActionController::RoutingError (No route matches [DELETE] "/equipments/2"):
   
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:07:13 -0300
+Started DELETE "/equipments/id/2" for ::1 at 2024-09-11 23:53:23 -0300
   
-ArgumentError (Missing :controller key on routes definition, please check your routes.):
+ActionController::RoutingError (No route matches [DELETE] "/equipments/id/2"):
   
-config/routes.rb:4:in `block in <main>'
-config/routes.rb:3:in `<main>'
-Started GET "/favicon.ico" for 127.0.0.1 at 2024-09-10 15:07:14 -0300
+Started GET "/equipments/2" for ::1 at 2024-09-11 23:53:32 -0300
+Processing by EquipmentsController#show as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Shields"}}, "id"=>"2", "equipment"=>{}}
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment" WHERE "equipment"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/equipments_controller.rb:45:in `set_equipment'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 436)
+
+
+Started PUT "/equipments/2" for ::1 at 2024-09-11 23:53:55 -0300
   
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+ActionController::RoutingError (No route matches [PUT] "/equipments/2"):
   
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:07:46 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 9385)
+Started PATCH "/equipments/2" for ::1 at 2024-09-11 23:54:03 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/equipments/2"):
+  
+Started POST "/equipments/2" for ::1 at 2024-09-11 23:54:06 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/equipments/2"):
+  
+Started GET "/equipments/2" for ::1 at 2024-09-11 23:54:17 -0300
+Processing by EquipmentsController#show as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Weapons"}}, "id"=>"2", "equipment"=>{}}
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment" WHERE "equipment"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/equipments_controller.rb:45:in `set_equipment'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 434)
 
 
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:07:56 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 478)
+Started GET "/equipments/1" for ::1 at 2024-09-11 23:54:26 -0300
+Processing by EquipmentsController#show as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Weapons"}}, "id"=>"1", "equipment"=>{}}
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment" WHERE "equipment"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/equipments_controller.rb:45:in `set_equipment'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 444)
 
 
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:09:44 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 2018)
+Started GET "/equipments/2" for ::1 at 2024-09-11 23:55:02 -0300
+Processing by EquipmentsController#show as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Weapons"}}, "id"=>"2", "equipment"=>{}}
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment" WHERE "equipment"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/equipments_controller.rb:45:in `set_equipment'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 2988)
 
 
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:11:09 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 2001)
-
-
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 15:15:30 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 467)
-
-
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 15:15:38 -0300
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
-Completed 422 Unprocessable Content in 18ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 10703)
-
-
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 15:16:23 -0300
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>"false", "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
-Completed 422 Unprocessable Content in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 541)
-
-
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 15:16:27 -0300
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>"false", "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 465)
-
-
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 15:16:36 -0300
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>0, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
-Completed 422 Unprocessable Content in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 540)
-
-
-Started GET "/api/v1/swords" for ::1 at 2024-09-10 15:33:24 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
-  [1m[36mSword Load (0.3ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 4400)
-
-
-Started POST "/api/v1/swords" for ::1 at 2024-09-10 15:33:37 -0300
-Processing by Api::V1::SwordsController#create as */*
-  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Fume Ultra Greatsword", "material"=>"Petrified Dragon Bone", "attack"=>307, "durability"=>70, "weaponclass"=>"Ultra Greatsword", "isreal"=>false, "description"=>"Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword.", "price"=>25000.0}}, "sword"=>{}}
+Started DELETE "/equipments/2" for ::1 at 2024-09-11 23:55:05 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/equipments/2"):
+  
+Started DELETE "/equipments/2" for ::1 at 2024-09-11 23:55:35 -0300
+Processing by EquipmentsController#destroy as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Weapons"}}, "id"=>"2", "equipment"=>{}}
+  [1m[36mEquipment Load (0.2ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment" WHERE "equipment"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/equipments_controller.rb:45:in `set_equipment'
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
-  [1m[36mSword Create (1.5ms)[0m  [1m[32mINSERT INTO "swords" ("name", "material", "attack", "durability", "weaponclass", "isreal", "description", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Fume Ultra Greatsword"], ["material", "Petrified Dragon Bone"], ["attack", 307], ["durability", 70], ["weaponclass", "Ultra Greatsword"], ["isreal", 0], ["description", "Ultra greatsword forged from the soul of the fume knight, and imbued with the Dark of Nadalia. The exile swordsman Raime had the ability to expunge the black fog, but chose instead to live alongside it, in the company of the child of Dark that haunts his sword."], ["price", 25000.0], ["created_at", "2024-09-10 18:33:37.166607"], ["updated_at", "2024-09-10 18:33:37.166607"]]
-  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
-  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:23:in `create'
-Completed 201 Created in 16ms (Views: 0.1ms | ActiveRecord: 3.4ms | Allocations: 10212)
+  ↳ app/controllers/equipments_controller.rb:38:in `destroy'
+  [1m[36mEquipment Destroy (1.6ms)[0m  [1m[31mDELETE FROM "equipment" WHERE "equipment"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/equipments_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/equipments_controller.rb:38:in `destroy'
+Completed 204 No Content in 10ms (ActiveRecord: 6.0ms | Allocations: 4024)
 
 
-Started GET "/" for 127.0.0.1 at 2024-09-10 15:33:46 -0300
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 584)
+Started GET "/equipments/2" for ::1 at 2024-09-11 23:55:41 -0300
+Processing by EquipmentsController#show as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Weapons"}}, "id"=>"2", "equipment"=>{}}
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment" WHERE "equipment"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/equipments_controller.rb:45:in `set_equipment'
+Filter chain halted as :set_equipment rendered or redirected
+Completed 404 Not Found in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 486)
 
 
-Started GET "/" for 127.0.0.1 at 2024-09-10 17:22:32 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.1ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 47ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 17870)
+Started GET "/equipments" for ::1 at 2024-09-11 23:55:49 -0300
+Processing by EquipmentsController#index as */*
+  Parameters: {"data"=>{"type"=>"sword", "attributes"=>{"name"=>"Weapons"}}, "equipment"=>{}}
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/controllers/equipments_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 752)
 
 
-Started GET "/" for 127.0.0.1 at 2024-09-11 08:49:39 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Api::V1::SwordsController#index as HTML
-  [1m[36mSword Load (0.2ms)[0m  [1m[34mSELECT "swords".* FROM "swords"[0m
-  ↳ app/controllers/api/v1/swords_controller.rb:9:in `index'
-Completed 200 OK in 47ms (Views: 0.2ms | ActiveRecord: 3.4ms | Allocations: 17873)
+Started GET "/equipments" for 127.0.0.1 at 2024-09-11 23:56:26 -0300
+Processing by EquipmentsController#index as HTML
+  [1m[36mEquipment Load (0.3ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/controllers/equipments_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 3.9ms | Allocations: 4087)
 
 
