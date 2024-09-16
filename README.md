@@ -10,7 +10,7 @@ Dark Souls API is a project to learn how to build a API using Ruby on Rails Fram
 - **Database:** sqlite
 
 ## How to use it
-- go to <a href="https://operational-corrinne-ishidaw-a74f35ce.koyeb.app">Dark Souls API</a>
+- go to <a href="https://operational-corrinne-ishidaw-a74f35ce.koyeb.app" target="_blank">Dark Souls API</a>
 - use the routes as you want, eg?
   -  **/equipments** _to show all equipments headers_
   -  **/equipments/shields**  _to show all shields classes in it (greatshield, small shiel)_
